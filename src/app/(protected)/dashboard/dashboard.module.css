@@ -1,0 +1,36 @@
+.dashboard {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 5.5em 7%;
+}
+
+.head {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.leftSide {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8em;
+}
+
+.title {
+    font: normal 600 1.5em var(--font-manrope);
+    color: var(--Grey800);
+}
+
+.welcome {
+    font: normal 400 1.1em var(--font-inter);
+}
+
+.selection {
+    display: flex;
+    flex-direction: row;
+    gap: 0.6em;
+    padding-top: 3em;
+    padding-bottom: 1.5em;
+}

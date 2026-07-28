@@ -1,0 +1,25 @@
+.menuItem {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+
+    border-radius: 10px;
+    padding: 1.7em 0;
+    background-color: var(--white);
+
+    font: var(--NormalFont);
+    color: var(--Dark-orange);
+    text-decoration: none;
+
+    width: 15.5em;
+    height: 4.9em;
+}
+
+.menuItem.active,
+.menuItem:hover {
+    color: var(--white);
+    background-color: var(--Grey950);
+}

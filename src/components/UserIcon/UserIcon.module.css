@@ -1,0 +1,21 @@
+.userIcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 4em;
+    height: 4em;
+    padding: 1.3rem 0.75rem;
+    border-radius: 50%;
+    background-color: var(--Light-orange);
+    color: var(--Grey950);
+
+    text-decoration: none;
+    text-align: center;
+    justify-self: center;
+}
+
+.userIcon:active,
+.userIcon:hover {
+    background-color: var(--Dark-orange);
+    color: var(--white);
+}
