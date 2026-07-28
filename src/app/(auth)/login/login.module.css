@@ -1,0 +1,38 @@
+.login {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3.5rem 2%;
+    width: 100%;
+    height: 100%;
+}
+
+.logForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.3rem;
+    min-width: 17.5rem;
+}
+
+.logForm .title {
+    font-family: var(--font-manrope);
+    font-size: 2.5rem;
+    font-weight: 700;
+    padding-bottom: 0.5rem;
+    color: var(--Dark-orange);
+}
+
+.logForm .error {
+    font: var(--SmallFont);
+    color: red;
+}
+
+.sub {
+    font: var(--SmallFont);
+}
+
+.create {
+    color: var(--Dark-orange);
+}

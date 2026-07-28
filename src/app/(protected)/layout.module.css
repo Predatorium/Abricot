@@ -1,0 +1,10 @@
+.layout {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: var(--minHeightScreen);
+}
+
+.main {
+    min-height: var(--minHeightMain) ;
+}

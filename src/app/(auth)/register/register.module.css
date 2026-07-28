@@ -1,0 +1,33 @@
+.register {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3.5rem 2%;
+    width: 100%;
+    height: 100%;
+}
+
+.regForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.3rem;
+    min-width: 17.5rem;
+}
+
+.regForm .title {
+    font-family: var(--font-manrope);
+    font-size: 2.5rem;
+    font-weight: 700;
+    padding-bottom: 0.5rem;
+    color: var(--Dark-orange);
+}
+
+.log {
+    font: var(--SmallFont);
+}
+
+.login {
+    color: var(--Dark-orange);
+}

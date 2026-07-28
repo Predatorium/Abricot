@@ -1,0 +1,17 @@
+.logo {
+    position: relative;
+    width: 16em;
+    height: 2em;
+}
+
+.logoHeader {
+    position: relative;
+    width: 9.2em;
+    height: 1.2em;
+}
+
+.LogoFooter {
+    position: relative;
+    width: 6.3em;
+    height: 0.8em;
+}

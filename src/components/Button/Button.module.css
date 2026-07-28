@@ -1,0 +1,28 @@
+.button {
+    font-family: var(--font-inter);
+    padding: 0.8rem 4.5rem;
+    border-radius: 10px;
+    width: fit-content;
+    height: fit-content;
+    text-decoration: none;
+}
+
+.button.simple {
+    background-color: var(--Grey800);
+    color: var(--white);
+}
+
+.button.simple:hover {
+    background-color: var(--Grey950);
+    color: var(--white);
+}
+
+.button.simple:disabled {
+    background-color: var(--Grey200);
+    color: var(--Grey400);
+}
+
+.button.outline {
+    background-color: var(--white);
+    color: var(--Dark-orange);
+}
