@@ -2,16 +2,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 4em;
-    height: 4em;
+    width: 4rem;
+    height: 4rem;
     padding: 1.3rem 0.75rem;
     border-radius: 50%;
     background-color: var(--Light-orange);
     color: var(--Grey950);
 
     text-decoration: none;
-    text-align: center;
-    justify-self: center;
+    font: normal 400 0.8rem var(--font-inter);
 }
 
 .userIcon:active,

@@ -1,0 +1,13 @@
+.group {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5em;
+    font: normal 400 0.7rem var(--font-inter);
+    color: var(--Grey600);
+}
+
+.group.black {
+    color: var(--Grey800);
+}

@@ -1,9 +1,8 @@
 .button {
     font-family: var(--font-inter);
     padding: 0.8rem 4.5rem;
-    border-radius: 10px;
     width: fit-content;
-    height: fit-content;
+    border-radius: 10px;
     text-decoration: none;
 }
 
@@ -24,5 +23,51 @@
 
 .button.outline {
     background-color: var(--white);
+    color: var(--Dark-orange);
+}
+
+.iconButton {
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3.5rem;
+    width: 3.5rem;
+    background-color: var(--white);
+
+    border: 1px solid var(--Grey200);
+    border-radius: 10px;
+}
+
+.iconButton:hover {
+    border-color: var(--Dark-orange);
+}
+
+.buttonIA {
+    background-color: var(--Dark-orange);
+    border-radius: 50%;
+}
+
+.buttonIA:hover {
+    background-color: var(--Light-orange);
+}
+
+.buttonIAText {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--Dark-orange);
+    border-radius: 10px;
+    padding: 0.8rem 4.6rem;
+    gap: 10px;
+
+    font: var(--NormalFont);
+    color: var(--white);
+}
+
+.buttonIAText:hover {
+    background-color: var(--Light-orange);
     color: var(--Dark-orange);
 }

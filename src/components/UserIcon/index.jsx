@@ -19,7 +19,7 @@ export default function UserIcon() {
     };
 
     return (
-        <Link href={"/profile"} onClick={handleLogout} className={styles.userIcon}>
+        <Link href={"/"} onClick={handleLogout} className={styles.userIcon}>
             <p>{user ? getInitials(user.name) : ""}</p>
         </Link>
     )

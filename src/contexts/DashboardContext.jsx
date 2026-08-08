@@ -1,6 +1,6 @@
 'use client';
 
-import { createContext, useContext, useState, useCallback } from 'react';
+import { createContext, useContext, useState, useCallback, useEffect } from 'react';
 import {
   getAssignedTasksAction,
   getProjectsWithTasksAction,
@@ -10,8 +10,8 @@ const DashboardContext = createContext(null);
 
 /**
  * @param {object} props
- * @param {Array} props.initialAssignedTasks - passé par le layout (getAssignedTasksAction)
- * @param {Array} props.initialProjectsWithTasks - passé par le layout (getProjectsWithTasksAction)
+ * @param {Array} [props.initialAssignedTasks]
+ * @param {Array} [props.initialProjectsWithTasks]
  * @param {React.ReactNode} props.children
  */
 export function DashboardProvider({
@@ -48,6 +48,29 @@ export function DashboardProvider({
     } finally {
       setLoading(false);
     }
+  }, []);
+
+  // Fetch initial automatique au montage - une seule fonction, un seul setLoading,
+  // les deux requêtes partent en parallèle
+  useEffect(() => {
+    async function loadInitialData() {
+      setLoading(true);
+      setError(null);
+      try {
+        const [tasksResult, projectsResult] = await Promise.all([
+          getAssignedTasksAction(),
+          getProjectsWithTasksAction(),
+        ]);
+        setAssignedTasks(tasksResult.data.tasks);
+        setProjectsWithTasks(projectsResult.data.projects);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    loadInitialData();
   }, []);
 
   return (

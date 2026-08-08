@@ -52,7 +52,7 @@ export function TaskProvider({ projectId, initialTasks = [], children }) {
   };
 
   return (
-    <TaskContext.Provider value={{ tasks, loading, error, refreshTasks, addTask, editTask, removeTask }}>
+    <TaskContext.Provider value={{ tasks, loading, error, refreshTasks, addTask, editTask, removeTask  }}>
       {children}
     </TaskContext.Provider>
   );

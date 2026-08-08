@@ -1,0 +1,50 @@
+.tag {
+    font: var(--SmallFont);
+    padding: 0.25rem 1rem;
+    width: max-content;
+    height: max-content;
+    border-radius: 50px;
+}
+
+.green {
+    background-color: var(--Success-green-light);
+    color: var(--Success-green);
+}
+
+.red {
+    background-color: var(--Error-red-light);
+    color: var(--Error-red);
+}
+
+.orange {
+    background-color: var(--Warning-orange-light);
+    color: var(--Warning-orange);
+}
+
+.blue {
+    background-color: var(--Info-blue-light);
+    color: var(--Info-blue);
+}
+
+.brand {
+    background-color: var(--Light-orange);
+    color: var(--Dark-orange);
+}
+
+.grey {
+    background-color: var(--Grey200);
+    color: var(--Grey600);
+}
+
+.userIcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    
+    font: normal 400 0.6em var(--font-inter);
+    border: 1px solid var(--white);
+    border-radius: 50px;
+    color: black;
+}

@@ -11,7 +11,7 @@ export function getAllProjects() {
 }
 
 // Réponse: { success, message, data: { project } }
-export function getProject(projectId) {
+export async function getProject(projectId) {
   return apiRequest("GET", `/projects/${projectId}`);
 }
 

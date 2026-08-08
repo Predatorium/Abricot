@@ -1,0 +1,73 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    padding: 1.5em 2.5em;
+    border: 1px solid var(--Grey200);
+    border-radius: 0.6em;
+}
+
+.head {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.titleRow {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.title {
+    font: normal 600 1.2rem var(--font-manrope), sans-serif;
+}
+
+.description {
+    font: var(--SmallFont);
+    color: var(--Grey600);
+}
+
+.goal {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.25em;
+    color: var(--Grey800);
+}
+
+.greySmallText {
+    font: normal 400 0.7rem var(--font-inter);
+    color: var(--Grey600);
+}
+
+.teamAvatars {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.separator {
+    border: none;
+    border-top: 1px solid var(--Grey200);
+}
+
+.iconButton {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.commentCount {
+    font: var(--SmallFont);
+    color: var(--Grey800);
+}
