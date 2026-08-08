@@ -1,0 +1,40 @@
+.projects {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 5.5em 7%;
+    gap: 3em;
+}
+
+.head {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.head > Button {
+    align-self: flex-end;
+}
+
+.leftSide {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.title {
+    font: normal 600 1.5em var(--font-manrope);
+    color: var(--Grey800);
+}
+
+.subtitle {
+    font: normal 400 1.1em var(--font-inter);
+}
+
+.myProjects {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    height: 100%;
+    gap: 1em;
+}
