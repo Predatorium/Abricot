@@ -1,0 +1,27 @@
+.kanban {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.4em;
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    
+    background-color: var(--white);
+    border: 1px solid var(--Error-red-light);
+    padding: 2.5em 1.5em;
+    border-radius: 10px;
+    gap: 2.6em;
+}
+
+.head {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.title {
+    font: normal 600 1.1rem var(--font-manrope);
+}

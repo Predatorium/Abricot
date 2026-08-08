@@ -5,14 +5,14 @@ import styles from "./dashboard.module.css"
 import { useAuth } from '@/contexts/AuthContext';
 import { Chip } from "@/components/Chip";
 import { usePathname, useRouter } from "next/navigation";
+import { DashboardProvider } from '@/contexts/DashboardContext';
 
 export default function Dashboard({ children }) {
-
     const { user } = useAuth();
 
     const pathname = usePathname();
-    const router = useRouter();
     const isKanban = pathname.startsWith('/dashboard/kanban');
+    const router = useRouter();
     
     return (
         <div className={styles.dashboard}>
@@ -29,7 +29,9 @@ export default function Dashboard({ children }) {
                 <Chip icon={'Kanban'} text={'Kanban'} isActive={isKanban} 
                     onClick={() => router.push('/dashboard/kanban')} />
             </div>
-            {children}
+            <DashboardProvider>
+                {children}
+            </DashboardProvider>
         </div>
     )
 }

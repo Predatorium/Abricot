@@ -1,0 +1,39 @@
+.tasks {
+    display: flex;
+    flex-direction: column;
+    padding: 2.5em 3.7em;
+    background-color: var(--white);
+    border: 1px solid var(--Grey200);
+    border-radius: 0.6em;
+    gap: 41xp;
+}
+
+.head {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.title {
+    font: normal 600 1.1rem var(--font-manrope);
+    color: var(--Grey800);
+}
+
+.subtitle {
+    font: var(--NormalFont);
+    color: var(--Grey600);
+}
+
+.myTasks {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding: 2em 0;
+}
