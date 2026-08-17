@@ -1,8 +1,8 @@
 'use client'
 
-import Tag from "@/components/Tag";
+import Tag from "@/components/Utils/Tag";
 import styles from "./kanban.module.css"
-import MyTask from "@/components/Task"
+import MyTask from "@/components/Card/Task"
 import { useDashboard } from "@/contexts/DashboardContext"
 
 export default function Kanban() {

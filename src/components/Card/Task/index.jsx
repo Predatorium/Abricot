@@ -1,7 +1,7 @@
-import Tag from "@/components/Tag";
+import Tag from "@/components/Utils/Tag";
 import { formatDateFrWithoutYear } from "@/services/utils"
-import IconText from "@/components/IconText";
-import { ButtonLink } from "@/components/Button";
+import IconText from "@/components/Utils/IconText";
+import { ButtonLink } from "@/components/Clickable/Button";
 import { statusLabel, styleLabel } from "@/services/utils";
 import styles from "./Task.module.css"
 

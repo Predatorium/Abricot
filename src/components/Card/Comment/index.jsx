@@ -3,7 +3,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import { useComments } from "@/contexts/CommentContext";
 import { getInitials, dateCreatedAt } from '@/services/utils';
 import styles from './Comment.module.css';
-import { Button } from "@/components/Button";
+import { Button } from "@/components/Clickable/Button";
 
 export function Comment({ comment }) {
     const { content, author, createdAt } = comment;

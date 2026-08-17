@@ -1,20 +1,22 @@
-import Tag from "@/components/Tag";
+import Tag from "@/components/Utils/Tag";
 import Image from "next/image"
-import IconText from "@/components/IconText";
+import IconText from "@/components/Utils/IconText";
 import { formatDateFrWithoutYear } from "@/services/utils"
-import { IconButton } from "@/components/Button";
+import { IconButton } from "@/components/Clickable/Button";
 import { statusLabel, styleLabel } from "@/services/utils";
 import { getInitials } from "@/services/utils"
-import { UserIconTag } from "@/components/Tag";
-import { Comment, AddComment } from "@/components/Comment";
+import { UserIconTag } from "@/components/Utils/Tag";
+import { Comment, AddComment } from "@/components/Card/Comment";
 import { CommentProvider, useComments } from "@/contexts/CommentContext";
 import { useState } from "react";
 import { Fragment } from "react";
+import { useTaskModal } from "@/contexts/TaskModalContext";
 import styles from "./CardTask.module.css"
 
-export default function CardTask({ task }) {
-    const { id, title, description, project, dueDate, comments, status, assignees } = task;
+export default function CardTask({ task, project }) {
+    const { id, title, description, dueDate, comments, status, assignees } = task;
     const [commentOpen, setCommentOpen] = useState(false);
+    const { openEditModal  } = useTaskModal();
 
     return (
         <div className={styles.card}>
@@ -26,7 +28,7 @@ export default function CardTask({ task }) {
                     </div>
                     <p className={styles.description}>{description}</p>
                 </div>
-                <IconButton icon={"Dots"} onClick={() => {}} />
+                <IconButton icon={"Dots"} onClick={() => openEditModal(task, project)} />
             </div>
 
 

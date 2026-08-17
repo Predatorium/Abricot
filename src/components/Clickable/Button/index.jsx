@@ -5,10 +5,10 @@ import Link from "next/link";
 import Image from "next/image"
 import { useState } from 'react';
 
-export function Button({ content, outline = false, type = 'button', onClick  }) {
+export function Button({ content, outline = false, type = 'button', onClick = null, disabled = false }) {
   return (
     <button type={type} onClick={onClick} className={`${styles.button} 
-      ${outline ? styles.outline : styles.simple}`}>
+      ${outline ? styles.outline : styles.simple}`} disabled={disabled}>
       {content}
     </button>
   )

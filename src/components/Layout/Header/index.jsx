@@ -1,6 +1,6 @@
 import { LogoHeader } from "../Logo"
-import MenuItem from "../MenuItem"
-import UserIcon from "../UserIcon"
+import MenuItem from "../../Clickable/MenuItem"
+import UserIcon from "../../Clickable/UserIcon"
 import styles from "./Header.module.css"
 
 export default function Header() {

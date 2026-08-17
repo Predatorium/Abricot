@@ -2,8 +2,8 @@
 
 import styles from "./tasks.module.css"
 import { useState } from "react";
-import SearchArea from "@/components/SearchArea"
-import MyTask from "@/components/Task"
+import SearchArea from "@/components/Utils/SearchArea"
+import MyTask from "@/components/Card/Task"
 import { useDashboard } from "@/contexts/DashboardContext"
 import { removeAccents } from "@/services/utils"
 

@@ -1,15 +1,15 @@
 "use client";
 
-import InputLabel from '@/components/InputLabel';
-import { Button } from '@/components/Button';
-import { LogoAuth } from '@/components/Logo'
+import InputLabel from '@/components/Utils/InputLabel';
+import { Button } from '@/components/Clickable/Button';
+import { LogoAuth } from '@/components/Layout/Logo'
 import Link from 'next/link';
-import { login } from './action'
+import { Login } from './action'
 import { useActionState } from "react";
 import styles from './login.module.css'
 
 export default function LoginPage() {
-  const [actionData, formAction, isPending] = useActionState(login, null);
+  const [actionData, formAction, isPending] = useActionState(Login, null);
 
   return (
     <div className={styles.login}>
@@ -17,8 +17,8 @@ export default function LoginPage() {
       <form action={formAction} className={styles.logForm}>
           <h1 className={styles.title}>Connexion</h1>
 
-          <InputLabel type='email' nameId='email' content='Email' isRequired={true} />
-          <InputLabel type='password' nameId='password' content='Mot de passe' isRequired={true} />
+          <InputLabel type='email' nameId='email' content='Email' />
+          <InputLabel type='password' nameId='password' content='Mot de passe' />
           
           {actionData?.error && <p className={styles.error}>{actionData.error}</p>}
 

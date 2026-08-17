@@ -1,0 +1,90 @@
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.label .title {
+  font: var(--SmallFont);
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tooltipWrapper {
+  position: relative;
+  display: inline-flex;
+  cursor: help;
+}
+
+.tooltipIcon {
+  font-size: 0.85rem;
+  color: #888;
+}
+
+.tooltipContent {
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: 240px;
+  background-color: #222;
+  color: #fff;
+  font-size: 0.8rem;
+  padding: 8px 10px;
+  border-radius: 6px;
+  z-index: 10;
+
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.tooltipWrapper:hover .tooltipContent,
+.tooltipWrapper:focus .tooltipContent {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* components/InputLabel/InputLabel.module.css — à ajouter à ton fichier existant */
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 1.2rem 1rem;
+  border: 1px solid var(--Grey200);
+  border-radius: 4px;
+  height: 3.3rem;
+}
+
+.inputWrapper .input {
+  all: unset;
+  width: 100%;
+  white-space: pre-wrap;
+  flex-wrap: wrap;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  font-family: var(--font-inter);
+  color: var(--Grey600);
+}
+
+/* icône native cachée uniquement pour les inputs date, le reste des types n'est pas concerné */
+.dateInput::-webkit-calendar-picker-indicator {
+  width: 2rem;
+  height: 100%;
+  cursor: pointer;
+}
+
+.calendarIcon {
+  all: unset;
+  position: absolute;
+  right: 1rem;
+  cursor: pointer;
+  pointer-events: none; /* laisse le clic traverser vers le vrai input en dessous */
+}

@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image"
-import Tag from "@/components/Tag"
-import { UserIconTag } from "@/components/Tag"
+import Tag from "@/components/Utils/Tag"
+import { UserIconTag } from "@/components/Utils/Tag"
 import styles from "./CardProject.module.css"
 import { getInitials } from "@/services/utils"
 import { getAllTasksAction } from "@/actions/taskActions"

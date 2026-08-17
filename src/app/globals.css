@@ -43,3 +43,22 @@ body {
 button {
   all: unset;
 }
+
+/* Desktop first : styles de base = desktop, puis on réduit pour plus petit */
+
+/* Grands écrans (styles de base, pas de media query) */
+
+/* Desktop standard et en dessous */
+@media (max-width: 1440px) { }
+
+/* Petits écrans desktop / tablettes larges */
+@media (max-width: 1280px) { }
+
+/* Tablettes */
+@media (max-width: 1024px) { }
+
+/* Petites tablettes / grands mobiles */
+@media (max-width: 768px) { }
+
+/* Mobile */
+@media (max-width: 480px) { }

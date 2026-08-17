@@ -4,7 +4,7 @@ import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { loginUser } from '@/api';
 
-export async function login(prevState, formData) {
+export async function Login(prevState, formData) {
   const email = formData.get('email');
   const password = formData.get('password');
 

@@ -24,6 +24,11 @@
     color: var(--Dark-orange);
 }
 
+.regForm .error {
+    font: var(--SmallFont);
+    color: red;
+}
+
 .log {
     font: var(--SmallFont);
 }
