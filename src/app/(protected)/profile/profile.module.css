@@ -1,0 +1,46 @@
+.profile {
+    display: flex;
+    flex-direction: column;
+    padding: 2.5em 5%;
+    margin: 3.5em 7%;
+
+    background-color: var(--white);
+    border: 1px solid var(--Grey200);
+    border-radius: 10px;
+    gap: 2.5em;
+}
+
+.profile .error {
+    font: var(--SmallFont);
+    color: red;
+}
+
+.head {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.title {
+    font: normal 600 1.1rem var(--font-manrope);
+    color: var(--Grey800);
+}
+
+.name {
+    font: var(--NormalFont);
+    color: var(--Grey600);
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+}
+
+@media (max-width: 768px) {
+
+    .profile {
+        padding: 2.5em 5%;
+        margin: 3.5em 3%;
+    }
+}
