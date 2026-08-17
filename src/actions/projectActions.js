@@ -1,5 +1,6 @@
 'use server';
 
+import { revalidatePath } from 'next/cache';
 import {
   getAllProjects,
   getProject,
@@ -23,7 +24,9 @@ export async function createProjectAction(projectData) {
 }
 
 export async function updateProjectAction(projectId, projectData) {
-  return updateProject(projectId, projectData);
+  const result = await updateProject(projectId, projectData);
+  revalidatePath(`/projects/${projectId}`);
+  return result;
 }
 
 export async function deleteProjectAction(projectId) {
@@ -31,9 +34,13 @@ export async function deleteProjectAction(projectId) {
 }
 
 export async function addContributorAction(projectId, payload) {
-  return addContributor(projectId, payload);
+  const result = await addContributor(projectId, payload);
+  revalidatePath(`/projects/${projectId}`);
+  return result;
 }
 
 export async function removeContributorAction(projectId, userId) {
-  return removeContributor(projectId, userId);
+  const result = await removeContributor(projectId, userId);
+  revalidatePath(`/projects/${projectId}`);
+  return result;
 }

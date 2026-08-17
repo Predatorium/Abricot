@@ -1,13 +1,15 @@
 'use client'
 
 import { useEffect } from "react";
-import { Button } from "@/components/Button";
+import { Button } from "@/components/Clickable/Button";
 import styles from "./projects.module.css"
-import { ProjectProvider, useProjects } from '@/contexts/ProjectContext';
-import CardProject from "@/components/CardProject";
+import { useProjects } from '@/contexts/ProjectContext';
+import { useProjectModal } from '@/contexts/ProjectModalContext';
+import CardProject from "@/components/Card/CardProject";
 
-export function ProjectsContent() {
+export default function Projects() {
     const { projects, loading, error, refreshProjects } = useProjects();
+    const { openCreateModal } = useProjectModal();
 
     useEffect(() => {
         refreshProjects();
@@ -20,7 +22,7 @@ export function ProjectsContent() {
                     <h4 className={styles.title}>Mes projets</h4>
                     <p className={styles.subtitle}>Gérez vos projets.</p>
                 </div>
-                <Button content={'+ Créer un projet'}  />
+                <Button content={'+ Créer un projet'} onClick={() => openCreateModal()} />
             </div>
             <div className={styles.myProjects}>
                 {loading && <p>Chargement...</p>}
@@ -31,12 +33,4 @@ export function ProjectsContent() {
             </div>
         </div>
     )
-}
-
-export default function Projects() {
-    return (
-        <ProjectProvider>
-            <ProjectsContent />
-        </ProjectProvider>
-    );
 }

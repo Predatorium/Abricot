@@ -1,0 +1,169 @@
+.project {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 5.5em 7%;
+    gap: 3em;
+}
+
+.head {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.head .left {
+    position: absolute;
+    left: 3rem;
+}
+
+.head .middle {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.head .middle .top {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+}
+
+.top .title {
+    font: normal 600 1.5rem var(--font-manrope);
+    color: var(--Grey800);
+}
+
+.top .edit {
+    font: normal 400 0.9rem var(--font-inter);
+    color: var(--Dark-orange);
+    text-decoration: underline;
+}
+
+.top .edit:hover {
+    color: var(--Main-orange);
+}
+
+.head .middle .bottom {
+    font: normal 400 1.1rem var(--font-inter);
+    color: var(--Grey600);
+}
+
+.head .right {
+    display: flex;
+    flex-direction: row;
+    gap: 0.7rem;
+    align-items: center;
+}
+
+.Contributors {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 3.2rem;
+    background-color: var(--Grey100);
+    border-radius: 10px;
+    gap: 1.5rem;
+}
+
+.left {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.left .title {
+    font: normal 600 1.1rem var(--font-manrope);
+    color: var(--Grey800);
+}
+
+.left .count {
+    font: var(--NormalFont);
+    color: var(--Grey600);
+}
+
+.teamAvatars {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.tasks {
+    display: flex;
+    flex-direction: column;
+    padding: 2.5rem 3.75rem;
+
+    background-color: var(--white);
+    border: 1px solid var(--Grey200);
+    border-radius: 10px;
+    gap: 2.5rem;
+}
+
+.headTasks {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.info .title {
+    font: normal 600 1.1rem var(--font-manrope);
+    color: var(--Grey800);
+}
+
+.info .order {
+    font: var(--NormalFont);
+    color: var(--Grey600);
+}
+
+.filter {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+}
+
+.wrapper {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+}
+
+.select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    border: 1px solid var(--Grey200);
+    border-radius: 8px;
+    background-color: var(--white);
+    width: fit-content;
+    padding: 1.5em 3em 1.5em 2em; 
+
+    font: var(--SmallFont);
+    color: var(--Grey600);
+}
+
+.arrow {
+    position: absolute;
+    right: 1.5em;
+    pointer-events: none;
+}
+
+.tasksList {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding: 0 2.5em;
+}

@@ -2,9 +2,11 @@ import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { getProfileAction } from "@/actions/authActions";
 import { getAllProjectsAction } from "@/actions/projectActions";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import { ProjectModalProvider } from '@/contexts/ProjectModalContext';
+import Header from "@/components/Layout/Header";
+import Footer from "@/components/Layout/Footer";
 import AppProviders from "@/contexts/AppProviders";
+import ProjectModal from '@/components/Modals/ProjectModal';
 import styles from './layout.module.css'
 
 export default async function ProtectedLayout({ children }) {
@@ -32,13 +34,16 @@ export default async function ProtectedLayout({ children }) {
 
   return (
     <AppProviders initialUser={initialUser} initialProjects={initialProjects}>
-      <div className={styles.layout}>
-        <Header />
-        <main className={styles.main}>
-          {children}
-        </main>
-        <Footer />
-      </div>
+      <ProjectModalProvider>
+        <div className={styles.layout}>
+          <Header />
+          <main className={styles.main}>
+            {children}
+            <ProjectModal />
+          </main>
+          <Footer />
+        </div>
+      </ProjectModalProvider>
     </AppProviders>
   );
 }
