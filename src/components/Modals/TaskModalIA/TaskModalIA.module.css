@@ -1,0 +1,53 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5em;
+    padding-bottom: 0.7em;
+}
+
+.tasks {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    width: 100%;
+    min-height: 29em;
+}
+
+.separator {
+    position: absolute;
+    border: none;
+    border-top: 1px solid var(--Grey200);
+    width: 100%;
+    justify-self: center;
+}
+
+.InputIA {
+    display: flex;
+    flex-direction: row;
+    margin-top: 0.7em;
+    padding: 1.1em 2em;
+    background-color: var(--Grey50);
+    gap: 10px;
+}
+
+.AreaInputIA {
+    all: unset;
+    flex: 1;
+    font: normal 400 0.6em var(--font-inter);
+}
+
+.iconIA {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1.5em;
+    height: 1.5rem;
+    border: 1px solid var(--white);
+    border-radius: 50px;
+    background-color: var(--Dark-orange);
+}
+
+.iconIA:hover {
+    background-color: var(--Light-orange);
+}

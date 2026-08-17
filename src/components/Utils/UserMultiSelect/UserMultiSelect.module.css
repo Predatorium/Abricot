@@ -1,0 +1,53 @@
+.multiSelect {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em
+}
+
+.label {
+    font: var(--SmallFont);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--Grey200);
+    border-radius: 4px;
+    gap: 0.5em
+}
+
+.area {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 0.2rem;
+    border: 1px solid var(--Grey200);
+    border-radius: 4px;
+    gap: 0.2em;
+}
+
+.chips {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.2em;
+}
+
+.input {
+    all: unset;
+    font: normal 400 0.8rem var(--font-inter);
+    color: var(--Grey600);
+    flex: 1;
+}
+
+.results {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    cursor: pointer;
+
+    font: normal 400 0.8rem var(--font-inter);
+    color: var(--Grey600);
+}

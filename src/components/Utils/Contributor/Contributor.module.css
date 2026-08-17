@@ -1,0 +1,24 @@
+.contributor {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--Grey200);
+}
+
+.name {
+  font: var(--SmallFont);
+  color: var(--Grey800);
+}
+
+.iconButton {
+  all: unset;
+  cursor: pointer;
+}
+
+.icon {
+  font: var(--SmallFont);
+  color: var(--Grey600);
+}

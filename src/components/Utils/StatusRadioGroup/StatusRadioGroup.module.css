@@ -1,0 +1,39 @@
+/* components/TaskModal/StatusRadioGroup.module.css */
+.group {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.option {
+  cursor: pointer;
+  border-radius: 999px;
+}
+
+.green:has(.hiddenRadio:checked) {
+  outline: 2px solid var(--Success-green);
+  outline-offset: 2px;
+}
+
+.red:has(.hiddenRadio:checked) {
+  outline: 2px solid var(--Error-red);
+  outline-offset: 2px;
+}
+
+.orange:has(.hiddenRadio:checked) {
+  outline: 2px solid var(--Warning-orange);
+  outline-offset: 2px;
+}
+
+.option:focus-within {
+  outline: 2px solid #4f46e5;
+  outline-offset: 2px;
+}
+
+.hiddenRadio {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
