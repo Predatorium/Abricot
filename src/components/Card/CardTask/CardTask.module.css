@@ -65,9 +65,6 @@
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
-}
-
-.commentCount {
     font: var(--SmallFont);
     color: var(--Grey800);
 }

@@ -18,11 +18,11 @@ export default function Projects() {
     return (
         <div className={styles.projects}>
             <div className={styles.head}>
-                <div className={styles.leftSide}>
-                    <h4 className={styles.title}>Mes projets</h4>
-                    <p className={styles.subtitle}>Gérez vos projets.</p>
+                <h1 className={styles.title}>Mes projets</h1>
+                <p className={styles.subtitle}>Gérez vos projets.</p>
+                <div className={styles.button}>
+                    <Button content={'+ Créer un projet'} onClick={() => openCreateModal()} />
                 </div>
-                <Button content={'+ Créer un projet'} onClick={() => openCreateModal()} />
             </div>
             <div className={styles.myProjects}>
                 {loading && <p>Chargement...</p>}

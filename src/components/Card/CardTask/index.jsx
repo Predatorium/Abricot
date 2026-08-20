@@ -23,7 +23,7 @@ export default function CardTask({ task, project }) {
             <div className={styles.head}>
                 <div className={styles.info}>
                     <div className={styles.titleRow}>
-                        <h4 className={styles.title}>{title}</h4>
+                        <p className={styles.title}>{title}</p>
                         <Tag style={styleLabel(status)} content={statusLabel(status)} />
                     </div>
                     <p className={styles.description}>{description}</p>
@@ -54,7 +54,7 @@ export default function CardTask({ task, project }) {
                 onClick={() => {setCommentOpen(!commentOpen)}}
                 className={styles.iconButton}
                 >
-                <p className={styles.commentCount}>Commentaires ({comments.length})</p>
+                Commentaires ({comments.length})
                 <Image
                     src={`/images/${commentOpen ? "Down" : "Up"}.svg`}
                     alt={`Icon`}

@@ -1,6 +1,6 @@
 'use client';
 
-import { Fragment, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { IconLinkButton, Button, ButtonIAWithText } from "@/components/Clickable/Button";
 import { useTasks } from '@/contexts/TaskContext';
 import { Chip } from "@/components/Clickable/Chip";
@@ -23,7 +23,6 @@ export default function ProjectContent({ projectData }) {
     const { openCreateModal  } = useTaskModal();
     const { openCreateModalIA  } = useTaskModalIA();
     const { openEditModal } = useProjectModal();
-    const { project } = projectData;
     const [query, setQuery] = useState('');
     const [selectedStatus, setSelectedStatus] = useState(null); 
     const [isFocused, setIsFocused] = useState(false);
@@ -52,31 +51,33 @@ export default function ProjectContent({ projectData }) {
                 </div>
                 <div className={styles.middle}>
                     <div className={styles.top}>
-                        <h1 className={styles.title}>{project.name}</h1>
-                        {user.id === project.owner.id && (
-                            <button type="button" onClick={() => openEditModal(project)} className={styles.edit}>Modifier</button>
+                        <h1 className={styles.title}>{projectData.name}</h1>
+                        {user.id === projectData.owner.id && (
+                            <button type="button" onClick={() => openEditModal(projectData)} className={styles.edit}>Modifier</button>
                         )}
                     </div>
-                    <p className={styles.bottom}>{project.description}</p>
+                    <p className={styles.bottom}>{projectData.description}</p>
                 </div>
                 <div className={styles.right}>
-                    <Button content={"Créer une tâche"} onClick={() => openCreateModal(project)} />
+                    <Button content={"Créer une tâche"} onClick={() => openCreateModal(projectData)} />
                     <ButtonIAWithText onClick={() => openCreateModalIA()} />
                 </div>
             </div>
             <div className={styles.Contributors}>
                 <div className={styles.left}>
                     <h2 className={styles.title}>Contributeurs</h2>
-                    <p className={styles.count}>{project.members.length + 1} personnes</p>
+                    <p className={styles.count}>{projectData.members.length + 1} personnes</p>
                 </div>
                 <div className={styles.teamAvatars}>
-                    <UserIconTag style="brand" content={getInitials(project.owner.name)} />
-                    <Tag style="brand" content="Propriétaire" />
-                    {project.members.map((member) => (
-                        <Fragment key={member.id}>
+                    <div>
+                        <UserIconTag style="brand" content={getInitials(projectData.owner.name)} />
+                        <Tag style="brand" content="Propriétaire" />
+                    </div>
+                    {projectData.members.map((member) => (
+                        <div key={member.id}>
                             <UserIconTag style="grey" content={getInitials(member.user.name)} />
                             <Tag style="grey" content={member.user.name} />
-                        </Fragment>
+                        </div>
                     ))}
                 </div>
             </div>
@@ -87,8 +88,8 @@ export default function ProjectContent({ projectData }) {
                         <p className={styles.order}>Par ordre de priorité</p>
                     </div>
                     <div className={styles.filter}>
-                        <Chip icon={'Task'} text={'Liste'} isActive={true} />
-                        <Chip icon={'Kanban'} text={'Calendrier'} isActive={false} />
+                        <Chip icon={'Task'} text={'Liste'} isActive={true} link={`/projects/${projectData.id}`} />
+                        <Chip icon={'Kanban'} text={'Calendrier'} isActive={false} link={`/projects/${projectData.id}`} />
                         <div className={styles.wrapper}>
                             <select
                                 className={styles.select}
@@ -121,7 +122,7 @@ export default function ProjectContent({ projectData }) {
                     {loading && <p>Chargement...</p>}
                     {error && <p>Erreur : {error}</p>}
                     {filteredTasks.map((task) => (
-                        <CardTask key={task.id} task={task} project={project} />
+                        <CardTask key={task.id} task={task} project={projectData} />
                     ))}
                 </div>
             </div>

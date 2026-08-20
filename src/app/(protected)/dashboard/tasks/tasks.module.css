@@ -1,7 +1,7 @@
 .tasks {
     display: flex;
     flex-direction: column;
-    padding: 2.5em 3.7em;
+    padding: 2.5em 5%;
     background-color: var(--white);
     border: 1px solid var(--Grey200);
     border-radius: 0.6em;
@@ -36,4 +36,10 @@
     flex-direction: column;
     gap: 1em;
     padding: 2em 0;
+}
+
+@media (max-width: 768px) {
+    .tasks {
+        padding: 2.5em 2%;        
+    }
 }

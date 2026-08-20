@@ -10,7 +10,7 @@
     
     background-color: var(--white);
     border: 1px solid var(--Error-red-light);
-    padding: 2.5em 1.5em;
+    padding: 2.5em 5%;
     border-radius: 10px;
     gap: 2.6em;
 }
@@ -24,4 +24,16 @@
 
 .title {
     font: normal 600 1.1rem var(--font-manrope);
+}
+
+@media (max-width: 768px) {
+    .kanban {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .section {
+        padding: 1em 2%;        
+        gap: 1.5em;
+    }
 }

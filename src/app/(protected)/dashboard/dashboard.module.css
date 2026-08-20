@@ -6,25 +6,28 @@
 }
 
 .head {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
     align-items: center;
-}
-
-.leftSide {
-    display: flex;
-    flex-direction: column;
     gap: 0.8em;
 }
 
 .title {
     font: normal 600 1.5em var(--font-manrope);
     color: var(--Grey800);
+    grid-column: 1;
 }
 
 .welcome {
     font: normal 400 1.1em var(--font-inter);
+    grid-column: 1/3;
+    grid-row: 2;
+}
+
+.button {
+    justify-self: end;
+    grid-row: 1;
+    grid-column: 2;
 }
 
 .selection {
@@ -33,4 +36,10 @@
     gap: 0.6em;
     padding-top: 3em;
     padding-bottom: 1.5em;
+}
+
+@media (max-width: 1024px) {
+    .dashboard {
+        padding: 5.5em 3%;
+    }
 }

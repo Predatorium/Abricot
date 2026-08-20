@@ -1,30 +1,18 @@
-'use client'
-
-import { useEffect, useState } from "react";
 import Image from "next/image"
 import Tag from "@/components/Utils/Tag"
 import { UserIconTag } from "@/components/Utils/Tag"
 import styles from "./CardProject.module.css"
 import { getInitials } from "@/services/utils"
-import { getAllTasksAction } from "@/actions/taskActions"
 import Link from "next/link";
 
 export default function CardProject({ project }){
-    const { id, name, description, owner, members } = project;
-    const [tasks, setTasks] = useState([]);
-
-    useEffect(() => {
-        getAllTasksAction(id).then(({ data }) => setTasks(data.tasks));
-    }, [id]);
-
-    const tasksTotal = tasks.length;
-    const tasksDone = tasks.filter((t) => t.status === "DONE").length;
+    const { id, name, description, owner, members, tasksTotal, tasksDone } = project;
     const progress = tasksTotal > 0 ? Math.round((tasksDone / tasksTotal) * 100) : 0;
 
     return (
         <Link href={`/projects/${id}`} className={styles.card}>
             <div className={styles.head}>
-                <h3 className={styles.title}>{name}</h3>
+                <h2 className={styles.title}>{name}</h2>
                 <p className={styles.description}>{description}</p>
             </div>
 

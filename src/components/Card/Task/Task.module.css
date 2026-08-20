@@ -1,6 +1,6 @@
 .card {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 2fr 1fr;
     grid-template-areas: 
         "topLeft topRight"
         "bottomLeft bottomRight";
@@ -12,7 +12,12 @@
     background-color: var(--white);
     height: max-content;
     width: 100%;
-    gap: 2em;
+    gap: 0.5em;
+}
+
+.card.kanban {
+    gap: 1em;
+    padding: 1.5em;
 }
 
 .header {
@@ -22,22 +27,19 @@
     grid-area: topLeft;
 }
 
-.datas {
-    display: flex;
-    flex-direction: row;
-    height: fit-content;
-    gap: 1em;
-    grid-area: bottomLeft;
-    align-self: end;
+.title {
+    font: normal 600 1.1rem var(--font-manrope);
+    grid-area: topLeft;
 }
 
-.datas.kanban {
+.description {
+    font: var(--SmallFont);
+    color: var(--Grey600);
+    grid-column: 1;
+}
+
+.description.kanban {
     grid-column: 1/3;
-}
-
-.separator {
-    border: none;
-    border-right: 1px solid var(--Grey400);
 }
 
 .status {
@@ -46,16 +48,62 @@
     justify-self: end;
 }
 
+.datas {
+    display: flex;
+    flex-direction: row;
+    height: fit-content;
+    padding: 1.5em 0;
+    gap: 1em;
+    grid-area: bottomLeft;
+    align-self: end;
+    grid-column: 1;
+    grid-row: 3;
+}
+
+.datas.kanban {
+    grid-column: 1/3;
+    gap: 0.5em;
+}
+
+.separator {
+    border: none;
+    border-right: 1px solid var(--Grey400);
+}
+
 .button {
     grid-area: bottomRight;
     justify-self: end;
     align-self: end;
     padding:  0.8rem 0;
+    grid-row: 3;
 }
 
 .button.kanban {
     grid-area: bottomLeft;
     justify-self: auto;
     align-self: auto;
-    grid-row: 3;
+    grid-row: 4;
+}
+
+@media (max-width: 768px) {
+    .card {
+        gap: 1em;
+        padding: 1.5em;     
+    }
+
+    .description {
+        grid-column: 1/3;
+    }
+
+    .datas {
+        grid-column: 1/3;
+        gap: 0.5em;
+    }
+
+    .button {
+        grid-area: bottomLeft;
+        justify-self: auto;
+        align-self: auto;
+        grid-row: 4;
+    }
 }

@@ -8,14 +8,23 @@ export default function InputLabel({ nameId, content, type, isRequired, placehol
   const isDate = type === 'date';
   const Tag = type === 'textarea' ? 'textarea' : 'input';
 
+  const inputProps = type === 'textarea' ? {} : { type };
+
   return (
     <div className={styles.label}>
       <div className={styles.titleRow}>
         <label htmlFor={nameId} className={styles.title}>{content}</label>
         {tooltip && (
-          <span className={styles.tooltipWrapper} tabIndex={0}>
-            <span className={styles.tooltipIcon}>ⓘ</span>
-            <span className={styles.tooltipContent}>{tooltip}</span>
+          <span
+            className={styles.tooltipWrapper}
+            tabIndex={0}
+            role="button"
+            aria-describedby={`${nameId}-tooltip`}
+          >
+            <span className={styles.tooltipIcon} aria-hidden="true">ⓘ</span>
+            <span id={`${nameId}-tooltip`} role="tooltip" className={styles.tooltipContent}>
+              {tooltip}
+            </span>
           </span>
         )}
       </div>
@@ -25,8 +34,7 @@ export default function InputLabel({ nameId, content, type, isRequired, placehol
           ref={inputRef}
           id={nameId}
           name={nameId}
-          wrap="soft"
-          type={type}
+          {...inputProps}
           className={`${styles.input} ${isDate ? styles.dateInput : ''}`}
           required={isRequired}
           placeholder={placeholder}
@@ -40,7 +48,7 @@ export default function InputLabel({ nameId, content, type, isRequired, placehol
             className={styles.calendarIcon}
             onClick={() => inputRef.current?.showPicker?.()}
             tabIndex={-1}
-            aria-hidden="true"
+            aria-label="Ouvrir le calendrier"
           >
             <Image
               src={`/images/Calendar.svg`}

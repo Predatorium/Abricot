@@ -11,11 +11,9 @@ export default function MyTask({ task, kanban = false }) {
   const commentsCount = comments?.length ?? 0;
 
   return (
-    <div className={styles.card}>
-      <div className={styles.header}>
-        <h4 className={styles.title}>{title}</h4>
-        <p className={styles.description}>{description}</p>
-      </div>
+    <div className={`${styles.card} ${kanban ? styles.kanban : ""}`}>
+      <h2 className={styles.title}>{title}</h2>
+      <p className={`${styles.description} ${kanban ? styles.kanban : ""}`}>{description}</p>
 
       <div className={styles.status}>
         <Tag style={styleLabel(status)} content={statusLabel(status)} />
@@ -30,7 +28,7 @@ export default function MyTask({ task, kanban = false }) {
       </div>
 
       <div className={`${styles.button}  ${kanban ? styles.kanban : ""}`}>
-        <ButtonLink content={"Voir"} link={`/projects/${project.id}/tasks/${id}`} outline={false} />
+        <ButtonLink content={"Voir"} link={`/projects/${project.id}`} outline={false} />
       </div>
     </div>
   );
