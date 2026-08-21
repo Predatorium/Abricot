@@ -13,7 +13,11 @@ export default function Profile() {
     const { user, clearUser } = useAuth();
     const [firstName, lastName] = user?.name.split(' ') || ['', ''];
 
-    const intitialState = { email: user?.email || '', firstName: firstName, lastName: lastName };
+    const intitialState = { 
+        email: user?.email, 
+        firstName: firstName,
+        lastName: lastName,
+    };
     const [actionData, formAction, isPending] = useActionState(Update, intitialState);
 
     const handleLogout = async () => {

@@ -53,8 +53,8 @@ export default function InputLabel({ nameId, content, type, isRequired, placehol
             <Image
               src={`/images/Calendar.svg`}
               alt={`Calendar`}
-              width={15}
-              height={15}
+              width={12}
+              height={12}
               loading="eager"
             />
           </button>

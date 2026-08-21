@@ -15,10 +15,24 @@ export default function SearchArea({ onSearch, placeholder = "Rechercher..." }) 
 
     return (
         <div className={styles.searchArea}>
-            <input type="text" name='search' id='search' className={styles.input} placeholder={placeholder}
-                defaultValue={value} onChange={handleChange} />
-            <Image src={"/images/Magnifier.svg"} alt={"Magnifier"}
-                width={14} height={14} loading="eager"/>
+            <input 
+                type="text" 
+                name='search' 
+                id='search' 
+                className={styles.input} 
+                placeholder={placeholder}
+                value={value} 
+                onChange={handleChange}
+                aria-label="Rechercher"
+            />
+            <Image 
+                src={"/images/Magnifier.svg"}
+                alt={"Magnifier"}
+                width={14}
+                height={14}
+                loading="eager"
+                className={styles.magnifier}
+            />
         </div>
     )
 }

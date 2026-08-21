@@ -98,6 +98,7 @@
 .teamAvatars > div {
     display: flex;
     flex-direction: row;
+    align-items: center;
     gap: 0.5rem;
 }
 
@@ -150,18 +151,18 @@
     display: inline-flex;
     align-items: center;
     width: fit-content;
+    height: 4em;
 }
 
 .select {
     appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-
+    
     border: 1px solid var(--Grey200);
     border-radius: 8px;
     background-color: var(--white);
-    width: fit-content;
-    padding: 1.5em 3em 1.5em 2em; 
+    padding: 1.5em 3em 1.5em 2em;
+    width: 100%;
+    height: 100%;
 
     font: var(--SmallFont);
     color: var(--Grey600);

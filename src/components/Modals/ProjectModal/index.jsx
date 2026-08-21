@@ -12,15 +12,19 @@ import InputLabel from '@/components/Utils/InputLabel';
 import Modal from '@/components/Modals';
 import styles from './ProjectModal.module.css';
 import { useAuth } from '@/contexts/AuthContext';
+import { redirect } from 'next/navigation';
 
 const initialState = { error: null };
 
 export default function ProjectModal() {
   const { isOpen, mode, project, closeModal } = useProjectModal();
+  const { user } = useAuth();
   const { refreshProjects } = useProjects();
 
   const members = useMemo(() => {
-    if (!project) return [];
+    if (!project) {
+      return user ? [{ id: user.id, name: user.name, email: user.email }] : [];
+    }
 
     const normalizedMembers = (project.members ?? []).map((m) => ({
       id: m.user.id,
@@ -29,7 +33,7 @@ export default function ProjectModal() {
     }));
 
     return project.owner ? [project.owner, ...normalizedMembers] : normalizedMembers;
-  }, [project]);
+  }, [project, user]);
 
   const action = async (prevState, formData) => {
     const newContributors = formData.getAll('contributors').map((raw) => JSON.parse(raw));
@@ -61,8 +65,13 @@ export default function ProjectModal() {
       if (contributorError) 
         return { error: contributorError.error };
     }
-
+    
     await refreshProjects();
+    if (mode === 'create') {
+      const projectId = result.data.project.id;
+      
+      redirect(`/projects/${projectId}`);
+    }
     closeModal();
     return { error: null };
   };

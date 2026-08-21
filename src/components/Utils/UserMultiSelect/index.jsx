@@ -74,7 +74,7 @@ export default function UserMultiSelect({ mode = 'local', name, label, options =
                     {selected.length > 0 && (
                         <div className={styles.chips}>
                             {selected.map((u) => (
-                                <Contributor key={u.id} name={u.name} onClick={() => removeUser(u.id)}/>
+                                <Contributor key={u.id} name={u.name} id={u.id} onClick={() => removeUser(u.id)}/>
                             ))}
                         </div>
                     )}
@@ -113,7 +113,8 @@ export default function UserMultiSelect({ mode = 'local', name, label, options =
                         key={user.id} 
                         type="hidden" 
                         id={name} name={name} 
-                        value={JSON.stringify({ id: user.id, email: user.email, name: user.name, role: user.role })} />
+                        value={JSON.stringify({ id: user.id, email: user.email, name: user.name, role: user.role })} 
+                    />
                 ))}
             </div>
         </div>

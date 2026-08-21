@@ -1,18 +1,22 @@
 .searchArea {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    position: relative;
+    display: inline-flex;
     align-items: center;
+    width: fit-content;
+    height: 4em;
+}
 
+.input {    
     border: 1px solid var(--Grey200);
     border-radius: 0.5em;
     background-color: var(--white);
-    padding: 1.45em 2em;
+    padding: 1.5em 2em;
     max-width: 22.3em;
-    height: fit-content;
+    height: 100%;
 }
 
-.input {
-    all: unset;
-    width: 100%;
+.magnifier {
+    position: absolute;
+    right: 1.5em;
+    pointer-events: none;
 }

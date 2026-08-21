@@ -13,6 +13,8 @@
     flex-direction: column;
     border: 1px solid var(--Grey200);
     border-radius: 4px;
+    padding: 1.2em 1em;
+    height: fit-content;
     gap: 0.5em
 }
 
@@ -20,8 +22,6 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    padding: 0.2rem;
-    border: 1px solid var(--Grey200);
     border-radius: 4px;
     gap: 0.2em;
 }
@@ -35,7 +35,7 @@
 
 .input {
     all: unset;
-    font: normal 400 0.8rem var(--font-inter);
+    font: normal 400 0.7rem var(--font-inter);
     color: var(--Grey600);
     flex: 1;
 }
@@ -50,4 +50,10 @@
 
     font: normal 400 0.8rem var(--font-inter);
     color: var(--Grey600);
+}
+
+.hint {
+    font: normal 400 0.8rem var(--font-inter);
+    color: var(--Grey600);
+    align-self: center;
 }

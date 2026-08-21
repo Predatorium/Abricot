@@ -12,7 +12,10 @@ export async function Register(prevState, formData) {
     throw new Error('Identifiant et mot de passe requis');
   }
 
-  const result = await registerUser({ email, password, username: email });
+  const rawName = email.match(/^[a-zA-Z]+/)?.[0] ?? email;
+  const name = rawName.charAt(0).toUpperCase() + rawName.slice(1).toLowerCase();
+
+  const result = await registerUser({ email, password, name });
   const { token } = result.data;
 
   (await cookies()).set('token', token, {
@@ -20,7 +23,7 @@ export async function Register(prevState, formData) {
     secure: process.env.REACT_ENV === 'production',
     sameSite: 'lax',
     path: '/',
-    maxAge: 60 * 60 * 24 * 7,
+    maxAge: 60 * 60 * 24 * 7, //30 jours
   });
 
   redirect('/dashboard');

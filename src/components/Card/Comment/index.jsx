@@ -68,7 +68,7 @@ export function AddComment() {
                     />
                     {error && <p className={styles.error}>{error}</p>}
                 </div>
-                <Button content="Envoyer" onClick={submitComment} disabled={!isSubmitting} />
+                <Button content="Envoyer" onClick={submitComment} disabled={!content.trim()} />
             </div>
         </div>
     );

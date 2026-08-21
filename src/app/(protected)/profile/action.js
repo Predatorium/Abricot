@@ -7,10 +7,10 @@ export async function Update(prevState, formData) {
   const lastName = formData.get('lastName') ?? "";
   const firstName = formData.get('firstName') ?? "";
   const email = formData.get('email') ?? "";
-  const password = formData.get('password') ?? "";
+  const newPassword = formData.get('password') ?? "";
   const currentPassword = formData.get('currentPassword') ?? "";
 
-  if (!lastName && !firstName && !email && !password) {
+  if (!lastName && !firstName && !email && !newPassword) {
     return { error: 'Veuillez remplir au moins un champ' };
   }
 
@@ -19,8 +19,8 @@ export async function Update(prevState, formData) {
       await updateProfile({ email, name: `${firstName} ${lastName}` });
     }
 
-    if (password && currentPassword) {
-      await updatePassword({ currentPassword, newPassword: password });
+    if (newPassword && currentPassword) {
+      await updatePassword({ currentPassword, newPassword });
     }
   } catch (error) {
     return { error: error.message || 'Une erreur est survenue' };

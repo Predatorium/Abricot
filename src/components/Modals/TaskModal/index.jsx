@@ -1,11 +1,12 @@
 // components/TaskModal/TaskModal.jsx
 'use client';
-import { useActionState } from 'react';
+import { useActionState, useState } from 'react';
 import { createTaskAction, updateTaskAction } from '@/actions/taskActions';
 import { useTaskModal } from '@/contexts/TaskModalContext';
 import { useTasks } from '@/contexts/TaskContext';
 import { Button } from '@/components/Clickable/Button';
 import { useMemo } from 'react';
+import Image from 'next/image';
 import UserMultiSelect from '@/components/Utils/UserMultiSelect';
 import InputLabel from '@/components/Utils/InputLabel';
 import Modal from '@/components/Modals';
@@ -17,6 +18,7 @@ const initialState = { error: null };
 export default function TaskModal() {
   const { isOpen, mode, task, project, closeModal } = useTaskModal();
   const { refreshTasks } = useTasks();
+  const [isFocused, setIsFocused] = useState(false);
 
   const members = useMemo(() => {
     if (!project) return [];
@@ -45,7 +47,7 @@ export default function TaskModal() {
       status: mode === 'create' ? "TODO" : formData.get('currentState'),
       dueDate: formData.get('dueDate') || new Date(), // string vide si non rempli → null
       assigneeIds: formData.getAll('assigneeIds').map((raw) => JSON.parse(raw).id),
-      priority: "MEDIUM",
+      priority: formData.get('priority'),
     };
 
     const result = mode === 'create'
@@ -102,12 +104,36 @@ export default function TaskModal() {
             placeholder="Choisir un ou plusieurs collaborateurs"
           />
 
-          {mode !== 'create' && (
-            <div className={styles.field}>
-              <p className={styles.status}>Statut :</p>
-              <StatusRadioGroup name='currentState' defaultValue={task?.status ?? ''} />
+          <div className={styles.priority}>
+            <label htmlFor='priority' className={styles.label}>Prioritée :</label>
+            <div className={styles.wrapper}>
+              <select
+                  className={styles.select}
+                  name="priority"
+                  id="priority"
+                  defaultValue={task?.priority ?? 'LOW'}
+                  onFocus={() => setIsFocused(true)}
+                  onBlur={() => setIsFocused(false)}
+              >
+                  <option value={"LOW"}>Basse</option>
+                  <option value={"MEDIUM"}>Moyenne</option>
+                  <option value={"HIGH"}>Élevée</option>
+                  <option value={"URGENT"}>Urgente</option>
+              </select>
+              <Image
+                  src={`/images/${isFocused ? "Up" : "Down"}.svg`}
+                  alt=""
+                  width={12}
+                  height={12}
+                  className={styles.arrow}
+              />
             </div>
-          )}
+          </div>
+
+          <div className={styles.field}>
+            <p className={styles.status}>Statut :</p>
+            <StatusRadioGroup name='currentState' defaultValue={task?.status ?? 'TODO'} />
+          </div>
 
           {state.error && <p className={styles.error}>{state.error}</p>}
         </div>

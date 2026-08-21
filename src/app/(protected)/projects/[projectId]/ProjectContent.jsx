@@ -17,6 +17,8 @@ import SearchArea from "@/components/Utils/SearchArea";
 import styles from "./project.module.css";
 import { useAuth } from "@/contexts/AuthContext";
 
+const priorityOrder = { URGENT: 0, HIGH: 1, MEDIUM: 2, LOW: 3 };
+
 export default function ProjectContent({ projectData }) {
     const { tasks, loading, error, refreshTasks } = useTasks();
     const { user } = useAuth();
@@ -26,6 +28,7 @@ export default function ProjectContent({ projectData }) {
     const [query, setQuery] = useState('');
     const [selectedStatus, setSelectedStatus] = useState(null); 
     const [isFocused, setIsFocused] = useState(false);
+    const [orderByDate, setOrderByDate] = useState(false);
     
     const availableStatuses = [...new Set(tasks.map((task) => task.status))];
 
@@ -33,6 +36,17 @@ export default function ProjectContent({ projectData }) {
         const matchesQuery = removeAccents(task.title.toLowerCase()).includes(removeAccents(query.toLowerCase()));
         const matchesStatus = !selectedStatus || task.status === selectedStatus;
         return matchesQuery && matchesStatus;
+    });
+
+    const sortedTasks = [...filteredTasks].sort((a, b) => {
+        if (orderByDate) {
+            // Tri par date d'échéance croissante (les tâches sans date passent en dernier)
+            if (!a.dueDate) return 1;
+            if (!b.dueDate) return -1;
+            return new Date(a.dueDate) - new Date(b.dueDate);
+        }
+        // Tri par priorité
+        return (priorityOrder[a.priority] ?? 99) - (priorityOrder[b.priority] ?? 99);
     });
     
     const onChange = (status) => {
@@ -85,11 +99,11 @@ export default function ProjectContent({ projectData }) {
                 <div className={styles.headTasks}>
                     <div className={styles.info}>
                         <h3 className={styles.title}>Tâches</h3>
-                        <p className={styles.order}>Par ordre de priorité</p>
+                        <p className={styles.order}>{orderByDate ? "Par date d'échéance" : "Par ordre de priorité"}</p>
                     </div>
                     <div className={styles.filter}>
-                        <Chip icon={'Task'} text={'Liste'} isActive={true} link={`/projects/${projectData.id}`} />
-                        <Chip icon={'Kanban'} text={'Calendrier'} isActive={false} link={`/projects/${projectData.id}`} />
+                        <Chip icon={'Task'} text={'Liste'} isActive={!orderByDate} onClick={() => setOrderByDate(false)} />
+                        <Chip icon={'Kanban'} text={'Calendrier'} isActive={orderByDate} onClick={() => setOrderByDate(true)} />
                         <div className={styles.wrapper}>
                             <select
                                 className={styles.select}
@@ -121,7 +135,7 @@ export default function ProjectContent({ projectData }) {
                 <div className={styles.tasksList}>
                     {loading && <p>Chargement...</p>}
                     {error && <p>Erreur : {error}</p>}
-                    {filteredTasks.map((task) => (
+                    {sortedTasks.map((task) => (
                         <CardTask key={task.id} task={task} project={projectData} />
                     ))}
                 </div>

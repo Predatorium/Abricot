@@ -12,7 +12,7 @@ export default function MyTask({ task, kanban = false }) {
 
   return (
     <div className={`${styles.card} ${kanban ? styles.kanban : ""}`}>
-      <h2 className={styles.title}>{title}</h2>
+      <h3 className={styles.title}>{title}</h3>
       <p className={`${styles.description} ${kanban ? styles.kanban : ""}`}>{description}</p>
 
       <div className={styles.status}>
