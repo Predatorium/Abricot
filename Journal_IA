@@ -1,0 +1,37 @@
+Journal de l'IA – Projet Abricot
+
+Résumé synthétique du travail effectué avec l'assistance de Claude, organisé par thème.
+
+🏗️ Architecture générale
+
+Mise en place du pattern Server Actions comme pont vers l'API Express/Prisma (backend traité comme une boîte noire, non modifiable).
+Authentification via cookie httpOnly contenant le JWT.
+Chargement des données côté Server Components (le layout (protected) précharge user + projets), avec passage des données en props aux composants clients — approche adoptée notamment pour éviter les blocages liés aux vérifications d'origin sur mobile.
+Gestion d'état côté client via plusieurs React Contexts dédiés : AuthContext, ProjectContext, TaskContext, CommentContext, DashboardContext.
+
+🧩 Composants réutilisables
+
+InputLabel : champ générique supportant les types text, date, textarea, avec gestion de tooltip.
+Button / ButtonLink.
+Tag : variante dynamique via styles[variant] (CSS Modules).
+UserMultiSelect : deux modes, local et async (avec debounce).
+StatusRadioGroup, Modal, CardProject, CardTask, MenuItem, SearchArea, AddComment, FilterStatus.
+
+🐛 Bugs résolus
+
+redirect() non utilisable dans un bloc try/catch.
+Nécessité de revalidatePath pour rafraîchir un Server Component après action.
+Blocage des requêtes cross-origin en dev (Next.js 15.3+) empêchant les tests depuis le réseau local → résolu via allowedDevOrigins dans next.config.js.
+
+♿ Accessibilité (WAVE / WCAG)
+
+Audit des composants InputLabel et Button pour conformité W3C/accessibilité.
+
+📱 Tests mobile / réseau local
+
+Diagnostic et résolution des blocages liés aux vérifications d'origine de Next.js empêchant l'accès depuis un appareil mobile sur le réseau local.
+Consolidation de la stratégie "fetch côté Server Component" comme solution durable à ce type de problème.
+
+🎨 Style
+
+Approche CSS desktop-first, avec breakpoints via max-width, et usage systématique des CSS Modules.
