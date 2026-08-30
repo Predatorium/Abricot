@@ -6,6 +6,11 @@
     padding-bottom: 0.7em;
 }
 
+.generate {
+    font: normal 600 2em var(--font-manrope);
+    color: var(--Dark-orange);
+}
+
 .tasks {
     display: flex;
     flex-direction: column;

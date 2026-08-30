@@ -74,7 +74,7 @@ export default function ProjectContent({ projectData }) {
                 </div>
                 <div className={styles.right}>
                     <Button content={"Créer une tâche"} onClick={() => openCreateModal(projectData)} />
-                    <ButtonIAWithText onClick={() => openCreateModalIA()} />
+                    <ButtonIAWithText onClick={() => openCreateModalIA(projectData.id)} />
                 </div>
             </div>
             <div className={styles.Contributors}>

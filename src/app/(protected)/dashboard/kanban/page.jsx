@@ -16,7 +16,7 @@ export default function Kanban() {
         <div className={styles.kanban}>
             <div className={styles.section}>
                 <div className={styles.head}>
-                    <p className={styles.title}>À faire</p>
+                    <h2 className={styles.title}>À faire</h2>
                     <Tag style={"grey"} content={todoTasks.length} />
                 </div>
                 {loading && <p>Chargement...</p>}
@@ -27,7 +27,7 @@ export default function Kanban() {
             </div>
             <div className={styles.section}>
                 <div className={styles.head}>
-                    <p className={styles.title}>En cours</p>
+                    <h2 className={styles.title}>En cours</h2>
                     <Tag style={"grey"} content={inProgressTasks.length} />
                 </div>
                 {loading && <p>Chargement...</p>}
@@ -38,7 +38,7 @@ export default function Kanban() {
             </div>
             <div className={styles.section}>
                 <div className={styles.head}>
-                    <p className={styles.title}>Terminées</p>
+                    <h2 className={styles.title}>Terminées</h2>
                     <Tag style={"grey"} content={doneTasks.length} />
                 </div>
                 {loading && <p>Chargement...</p>}

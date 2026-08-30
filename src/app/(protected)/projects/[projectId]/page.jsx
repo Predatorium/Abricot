@@ -30,8 +30,8 @@ export default async function Project({ params }) {
         <TaskProvider projectId={projectId} initialTasks={initialTasks}>
             <TasksModalProvider>
                 <ProjectContent projectData={project} />
-                <TaskModal />
                 <TaskModalIA />
+                <TaskModal />
             </TasksModalProvider>
         </TaskProvider>
     );

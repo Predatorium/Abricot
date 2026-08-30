@@ -4,10 +4,10 @@ import { createContext, useContext, useState, useCallback } from 'react';
 const TaskModalIAContext = createContext(null);
 
 export function TaskModalIAProvider({ children }) {
-  const [state, setState] = useState({ isOpen: false});
+  const [state, setState] = useState({ isOpen: false, projectId: null});
 
-  const openCreateModalIA = useCallback(() => {
-    setState({ isOpen: true});
+  const openCreateModalIA = useCallback((projectId) => {
+    setState({ isOpen: true, projectId: projectId});
   }, []);
 
   const closeModalIA = useCallback(() => {
