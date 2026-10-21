@@ -5,7 +5,6 @@ Application SaaS de gestion de projets collaboratifs : projets, tâches, comment
 ![Tableau de bord](docs/dashboard.png)
 ![Gestionnaire des taches](docs/Gestionnaire_des_taches.png)
 ![Projet](docs/projet.png)
-<!-- À ajouter : 3 ou 4 captures dans docs/ (tableau de bord, projet, génération de tâches) -->
 
 ## Fonctionnalités
 
