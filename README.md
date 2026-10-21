@@ -3,7 +3,7 @@
 Application SaaS de gestion de projets collaboratifs : projets, tâches, commentaires, et génération de tâches par IA. Projet réalisé dans le cadre de la formation OpenClassrooms (Développeur d'application full stack).
 
 ![Tableau de bord](docs/dashboard.png)
-![Gestionnaire des taches](docs/Gestionnaire des taches.png)
+![Gestionnaire des taches](docs/Gestionnaire_des_taches.png)
 ![Projet](docs/projet.png)
 <!-- À ajouter : 3 ou 4 captures dans docs/ (tableau de bord, projet, génération de tâches) -->
 
